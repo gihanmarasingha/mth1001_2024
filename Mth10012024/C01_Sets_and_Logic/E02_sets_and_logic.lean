@@ -137,3 +137,12 @@ example : (A ∩ B) ∪ C ⊆ (A ∪ C) ∩ (B ∪ C) := by
 Prove the result below. Ensure you comment the Lean proof with 'traditional' mathematics.
 -/
 example : (A ∪ C) ∩ (B ∪ C) ⊆ (A ∩ B) ∪ C := by sorry
+
+/-
+## Exercise 4
+Determine which of the following are true. Give a proof.
+-/
+
+example : (A \ B) ∪ (A \ C) ⊆ A \ (B ∪ C):= by sorry
+
+example : (A \ B) ∩ (A \ C) ⊆ A \ (B ∪ C):= by sorry
