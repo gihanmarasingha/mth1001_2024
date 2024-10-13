@@ -17,7 +17,7 @@ Symbol, Command,  Name
 `∨`     `\or`     Or
 `→`     `\r`      Implies
 `↔`     `\iff`    If and only if
-`¬`      `\n`     Negation
+`¬`     `\neg`     Negation
 -/
 
 -- Below, we use the `tauto` tactic to prove that `p ∨ q` is equivalent to `q ∨ p`.
@@ -123,6 +123,17 @@ example : A ∩ B ⊆ A := by
   tauto -- The result immediately follows.
 
 /-
+## Exercise 3
+Determine which of the following are true. Give a proof of the true statement.
+You may wish to use `mem_diff`
+-/
+
+example : A ⊆ (A \ B) := by sorry
+
+example : (A \ B) ⊆ A := by sorry
+
+
+/-
 ### Named theorems
 * `mem_inter_iff` states `x ∈ A ∩ B` is equivalent to `(x ∈ A) ∧ (x ∈ B)`.
 -/
@@ -133,13 +144,13 @@ example : (A ∩ B) ∪ C ⊆ (A ∪ C) ∩ (B ∪ C) := by
   tauto -- The result follows.
 
 /-
-## Exercise 3
+## Exercise 4
 Prove the result below. Ensure you comment the Lean proof with 'traditional' mathematics.
 -/
 example : (A ∪ C) ∩ (B ∪ C) ⊆ (A ∩ B) ∪ C := by sorry
 
 /-
-## Exercise 4
+## Exercise 5
 Determine which of the following are true. Give a proof.
 -/
 
