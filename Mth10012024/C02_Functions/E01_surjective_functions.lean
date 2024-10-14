@@ -18,6 +18,8 @@ is `ℕ`. By defintion, it takes each `x` to `2 * x`.
 -/
 def f (x : ℕ) : ℕ := 2 * x
 
+#check (f : ℕ → ℕ)
+
 /-
 ## Evaluating a function
 The `#reduce` command shows the value of a Lean expression, where possible.
@@ -53,6 +55,7 @@ What happens if you try the code below? Read and explain the error message.
 `example : f = p := by sorry`
 -/
 
+#check (p : ℕ → ℤ)
 
 -- The function `k` is not *identical* to `f`. Though they are equal.
 def k (x : ℕ) : ℕ := x + x
@@ -78,8 +81,8 @@ example : f = k := by
 /-
 # Exercise 2
 
-Create Lean functions `q : ℕ → ℕ`,  `s : ℕ → ℕ`, `t : ℕ → ℤ` so that
-`q(n) = 3*n + 5`, `s(m) = 3*(m + 1) + 2`, and `t(x) = 3*x + 5`.
+Create Lean functions `q : ℕ → ℕ`,  `s : ℕ → ℕ`, `v : ℕ → ℤ` so that
+`q(n) = 3*n + 5`, `s(m) = 3*(m + 1) + 2`, and `v(x) = 3*x + 5`.
 
 Which of the functions are equal? Prove equality of the two that are equal.
 -/
@@ -105,20 +108,20 @@ example : f ≠ t := by
   trivial -- This is a contradiction
 
 /-
-The function `s` below is defined piecewise.
+The function `u` below is defined piecewise.
 
-s(x) = 5 if `x = 6`, otherwise, s(x) = 2 * x.
+u(x) = 5 if `x = 6`, otherwise, u(x) = 2 * x.
 -/
 
-def s (x : ℕ) : ℕ := if x = 6 then 5 else 2 * x
+def u (x : ℕ) : ℕ := if x = 6 then 5 else 2 * x
 
-#reduce s 6
+#reduce u 6
 
-#reduce s 7
+#reduce u 7
 
 /-
 # Exercise 3
-Prove that `f ≠ s`.
+Prove that `f ≠ u`.
 -/
 
 /-
