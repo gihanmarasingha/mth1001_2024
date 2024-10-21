@@ -103,7 +103,7 @@ Notation: type `≠` as `\ne`.
 -/
 
 example : f ≠ t := by
-  intro (h : f = t) -- For a contradiction, assume that `f = t`. Call this assumption `h`.
+  rintro (h : f = t) -- For a contradiction, assume that `f = t`. Call this assumption `h`.
   have h₂ : f 2 = t 2 := by simp [h] -- Using `h`, this means `f(2) = t(2)`.
   trivial -- This is a contradiction
 
@@ -166,7 +166,7 @@ Below,
 def f (x : ℤ) : ℤ := x + 5
 
 example : Surjective f := by
-  intro (y : ℤ)           -- Let `y ∈ Z`.
+  rintro (y : ℤ)           -- Let `y ∈ Z`.
   show ∃ (x : ℤ), f x = y -- We must show there exists `x ∈ ℤ` such that `f(x) = y`.
   set x := y - 5 with h   -- Let
   use x                   -- `x = y - 5`.
@@ -187,7 +187,7 @@ Note the angle brackets `⟨` and `⟩` in the `obtain` line are typed `\<` and 
 def p (n : ℕ) : ℕ := n + 5
 
 example : ¬(Surjective p) := by
-  intro (h : Surjective p)          -- For a contradiction, suppose that `p` is surjective.
+  rintro (h : Surjective p)          -- For a contradiction, suppose that `p` is surjective.
   obtain ⟨n, h₂ : n + 5 = 1⟩ := h 1 -- Applying this to `1`, we get `n` such that `n + 5 = 1`.
   linarith -- But this is a contradiction, as `n = -4` is not a natural number.
 
@@ -222,7 +222,7 @@ We show that `T = S` by first showing `T ⊆ S` and `S ⊆ T`.
 -/
 
 lemma S_sub_T : S ⊆ T := by
-  intro (s : ℤ) (h : s ∈ S)         -- Let `s ∈ ℤ`
+  rintro (s : ℤ) (h : s ∈ S)         -- Let `s ∈ ℤ`
   obtain ⟨x, h₂ : 2 * x = s⟩ := h   -- We get `x ∈ ℤ` such that `2 * x = s`
   show ∃ y, 2 * y + 6 = s           -- We must show `2 * y + 6 = s`, for some `y ∈ ℤ`
   set y := x - 3 with k             -- Let `y = x - 3`
